@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Filtro de Contenido</string>
+    <string name="subtitle">Bloqueo de contenido para adultos a nivel de DNS. Autocontrol, no castigo.</string>
+
+    <string name="status_on">PROTECCION ACTIVA</string>
+    <string name="status_off">PROTECCION INACTIVA</string>
+
+    <string name="btn_activate">Activar proteccion</string>
+    <string name="btn_deactivate">Desactivar proteccion</string>
+
+    <string name="section_protection">Refuerzo (anti-desinstalacion)</string>
+    <string name="section_lists">Listas de bloqueo</string>
+
+    <string name="btn_password">Establecer / cambiar contrasena</string>
+    <string name="btn_device_admin">Activar administrador de dispositivo</string>
+    <string name="btn_accessibility">Activar guardian de accesibilidad</string>
+    <string name="btn_update_lists">Actualizar listas (descargar ~260k dominios)</string>
+
+    <string name="footer_info">El filtro bloquea destinos por DNS (igual que la version de PC), sin SafeSearch ni descifrar trafico.\n\nResistencia a desinstalacion (3 capas): administrador de dispositivo + guardian de accesibilidad + (opcional) Device Owner por ADB. Modo Seguro, restablecimiento de fabrica y ADB siguen siendo vias de escape salvo con Device Owner. Lee el README.</string>
+
+    <string name="notif_channel">Estado del filtro</string>
+    <string name="notif_title">Filtro de Contenido activo</string>
+    <string name="notif_text">Bloqueando contenido para adultos a nivel de DNS.</string>
+
+    <string name="vpn_denied">Sin permiso de VPN no se puede filtrar.</string>
+    <string name="activated">Proteccion activada.</string>
+
+    <string name="pwd_to_disable">Escribe la contrasena para desactivar</string>
+    <string name="pwd_wrong">Contrasena incorrecta.</string>
+    <string name="disabled_window">Desactivado. Tienes 5 minutos para hacer cambios antes de que el guardian vuelva a bloquear.</string>
+
+    <string name="set_pwd_first_title">Sin contrasena no hay candado</string>
+    <string name="set_pwd_first_msg">Para que de verdad funcione contra el impulso, define una contrasena (idealmente que la escriba una persona de confianza y NO te la diga). Asi no podras desactivar el filtro en un momento de debilidad.</string>
+    <string name="set_pwd_now">Definir contrasena</string>
+    <string name="activate_anyway">Activar sin contrasena</string>
+
+    <string name="no_pwd_title">No hay contrasena definida</string>
+    <string name="no_pwd_msg">No definiste contrasena, asi que puedes desactivar el filtro libremente. Recomendado: definir una para tener candado real.</string>
+    <string name="disable">Desactivar</string>
+
+    <string name="harden_title">Refuerza la proteccion</string>
+    <string name="harden_msg">Para que no puedas desinstalar la app facilmente, activa el administrador de dispositivo y el guardian de accesibilidad desde los botones de abajo.</string>
+
+    <string name="pwd_current">Escribe tu contrasena actual</string>
+    <string name="pwd_new_title">Nueva contrasena</string>
+    <string name="pwd_new_msg">Minimo 4 caracteres. Solo se guarda el hash (no se puede recuperar el texto).</string>
+    <string name="save">Guardar</string>
+    <string name="pwd_too_short">Demasiado corta (minimo 4).</string>
+    <string name="pwd_saved">Contrasena guardada.</string>
+
+    <string name="admin_already">El administrador de dispositivo ya esta activo.</string>
+    <string name="admin_explain">Permite que el Filtro de Contenido se proteja contra desinstalacion facil. Tendras que desactivarlo antes de poder borrar la app.</string>
+
+    <string name="acc_title">Activar guardian de accesibilidad</string>
+    <string name="acc_msg">En la siguiente pantalla, entra a \"Filtro de Contenido\" y activalo. Esto permite que el guardian frene los intentos de desinstalar o desactivar el filtro.</string>
+    <string name="open_settings">Abrir ajustes</string>
+
+    <string name="lists_downloading">Descargando listas...</string>
+    <string name="lists_ok">Listas actualizadas</string>
+    <string name="lists_partial">Descarga parcial</string>
+
+    <string name="acc_service_desc">Frena los intentos de desinstalar o desactivar el Filtro de Contenido para ayudarte a mantener tu decision.</string>
+
+    <string name="guard_blocked_title">Accion bloqueada</string>
+    <string name="guard_blocked_msg">Para desinstalar o desactivar el filtro necesitas tu contrasena. Abre la app, pulsa \"Desactivar proteccion\" e introducela. Estas decidiendo en frio: eso es justo lo que querias.</string>
+</resources>

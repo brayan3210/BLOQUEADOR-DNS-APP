@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.FiltroContenido" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/gold</item>
+        <item name="colorPrimaryVariant">@color/gold</item>
+        <item name="colorOnPrimary">@color/navy</item>
+        <item name="colorSecondary">@color/gold</item>
+        <item name="colorOnSecondary">@color/navy</item>
+        <item name="android:statusBarColor">@color/navy</item>
+        <item name="android:windowBackground">@color/navy</item>
+    </style>
+</resources>

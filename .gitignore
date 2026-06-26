@@ -1,0 +1,19 @@
+# --- Android / Gradle (archivos AUTO-GENERADOS, se recrean solos al abrir/compilar) ---
+*.iml
+.gradle/
+.idea/
+.DS_Store
+build/
+captures/
+.externalNativeBuild/
+.cxx/
+# Ruta local del SDK (especifica de cada maquina; Android Studio la regenera)
+local.properties
+
+# Claves de firma (no se suben nunca)
+*.keystore
+*.jks
+
+# Los APK de compilacion se ignoran, PERO publicamos el APK final listo para instalar:
+*.apk
+!releases/*.apk
