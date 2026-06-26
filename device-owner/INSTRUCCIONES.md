@@ -32,7 +32,8 @@ device-owner\quitar_device_owner.bat
 ```
 o manualmente:
 ```
-adb shell dpm remove-active-admin com.brayan.filtrocontenido/.admin.FilterDeviceAdminReceiver
+adb shell dpm remove-active-admin --user 0 com.brayan.filtrocontenido/.admin.FilterDeviceAdminReceiver
+adb shell pm uninstall --user 0 com.brayan.filtrocontenido
 ```
 
 > Aun siendo Device Owner, el **restablecimiento de fábrica** borra todo y es la
