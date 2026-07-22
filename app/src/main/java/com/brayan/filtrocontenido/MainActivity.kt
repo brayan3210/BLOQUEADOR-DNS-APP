@@ -20,6 +20,7 @@ import com.brayan.filtrocontenido.data.Prefs
 import com.brayan.filtrocontenido.databinding.ActivityMainBinding
 import com.brayan.filtrocontenido.filter.BlocklistManager
 import com.brayan.filtrocontenido.filter.DomainFilter
+import com.brayan.filtrocontenido.filter.SearchTermFilter
 import com.brayan.filtrocontenido.lock.PasswordManager
 import com.brayan.filtrocontenido.vpn.DnsVpnService
 
@@ -47,13 +48,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Cargar listas en segundo plano la primera vez.
-        if (!DomainFilter.isLoaded()) {
-            Thread {
-                try { BlocklistManager.load(this) } catch (_: Exception) {}
-                runOnUiThread { refresh() }
-            }.start()
-        }
+        // Cargar listas (dominios + terminos de busqueda) en segundo plano.
+        Thread {
+            try { if (!DomainFilter.isLoaded()) BlocklistManager.load(this) } catch (_: Exception) {}
+            try { if (!SearchTermFilter.isLoaded()) SearchTermFilter.load(this) } catch (_: Exception) {}
+            runOnUiThread { refresh() }
+        }.start()
 
         if (Build.VERSION.SDK_INT >= 33) {
             requestNotif.launch(android.Manifest.permission.POST_NOTIFICATIONS)
@@ -306,6 +306,9 @@ class MainActivity : AppCompatActivity() {
             append("Contrasena: ").append(if (pwdOn) "definida" else "SIN definir").append('\n')
             append("Admin dispositivo: ").append(if (adminOn) "activo" else "inactivo").append('\n')
             append("Guardian accesibilidad: ").append(if (accOn) "activo" else "inactivo").append('\n')
+            append("Bloqueo busquedas: ")
+                .append(if (accOn && SearchTermFilter.isLoaded()) "activo (${SearchTermFilter.termCount()} terminos)" else "inactivo")
+                .append('\n')
             append("Device Owner (capa 3): ").append(if (ownerOn) "ACTIVO" else "no")
         }
     }

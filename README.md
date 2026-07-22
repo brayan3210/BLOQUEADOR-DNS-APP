@@ -70,6 +70,23 @@ de **esta** app y te saca de ahí (atrás + inicio), salvo que hayas abierto la
 impulso.** Se activa a mano en Ajustes → Accesibilidad (no se puede automatizar)
 y **NO funciona en Modo Seguro**.
 
+### Bloqueo de búsquedas por palabra (NUEVO)
+El **mismo** servicio de accesibilidad ahora hace un segundo trabajo: en los
+navegadores **lee el texto** de la barra de búsqueda / URL y, si contiene un
+término explícito del catálogo, **tapa la pantalla** con un aviso y te regresa.
+Es el equivalente móvil de la "capa de búsquedas" del PC.
+
+- **Sin SafeSearch y sin descifrar tráfico:** lee el **texto en pantalla** (lo
+  que se rinde por accesibilidad), no la red. Funciona aunque sea HTTPS.
+- **Mismo catálogo que el PC:** `catalogo_busqueda.txt` + `actrices_porno.txt`,
+  con `excepciones_educativas.txt` (pene, vagina, menstruación… **no** bloquean
+  solas: para biología/lectura). Solo bloquea si hay un término explícito.
+- **No estorba en uso normal:** solo actúa al detectar una búsqueda explícita;
+  el resto del tiempo solo lee en segundo plano (no dibuja ni ralentiza nada).
+- **Cobertura:** navegadores que exponen el texto por accesibilidad (Chrome,
+  Samsung Internet, Firefox, Brave, Edge, app de Google, etc.).
+- Usa el **mismo** Guardián de accesibilidad (no pide permiso extra).
+
 ### Device Owner (Propietario del dispositivo)
 El modo de gestión **más fuerte** de Android: el teléfono queda "en propiedad"
 de la app a nivel de sistema. Se activa **una sola vez por ADB desde un PC** y
@@ -163,8 +180,9 @@ gradlew.bat assembleDebug
 ---
 
 ## Límites técnicos (honestos, los mismos del PC)
-- Bloquea **destinos** (dominios), no el **texto** que escribes en el buscador
-  (eso exigiría SafeSearch o MITM, descartado).
+- El **filtro DNS** bloquea **destinos** (dominios). El **texto** que escribes en
+  el buscador lo bloquea la **capa de búsquedas** (accesibilidad, ver arriba),
+  que solo ve lo que se rinde como texto en pantalla (no miniaturas de imagen).
 - **DNS privado / DoT** (Ajustes → Red → DNS privado) puede saltarse la VPN. Solo
   se fuerza a OFF con Device Owner; sin él, ponlo en "Desactivado" a mano.
 - Apps con **DoH** propio: se bloquean sus dominios conocidos (`doh_bypass.txt`),
@@ -188,9 +206,11 @@ app/src/main/
 │   ├── vpn/DnsVpnService.kt            VPN local que filtra el DNS (= filtro.py)
 │   ├── net/IpUdp.kt · Dns.kt           parseo/armado de paquetes IPv4/UDP y DNS
 │   ├── filter/DomainFilter.kt          lógica dominio + palabra clave (= PC)
+│   ├── filter/SearchTermFilter.kt      motor de bloqueo de BÚSQUEDAS (= motor_busqueda.py)
 │   ├── filter/BlocklistManager.kt      carga assets + descarga StevenBlack/Hagezi
+│   ├── BloqueoBusquedaActivity.kt      pantalla de bloqueo de búsqueda
 │   ├── admin/FilterDeviceAdminReceiver.kt · DeviceOwnerManager.kt
-│   ├── guard/UninstallGuardService.kt  guardián de accesibilidad
+│   ├── guard/UninstallGuardService.kt  guardián accesibilidad + bloqueo búsquedas
 │   ├── boot/BootReceiver.kt            arranque con el teléfono
 │   ├── lock/PasswordManager.kt         SHA-256 (sin texto plano)
 │   └── data/Prefs.kt

@@ -33,6 +33,15 @@
             </intent-filter>
         </activity>
 
+        <!-- Pantalla de bloqueo cuando se detecta una busqueda explicita. -->
+        <activity
+            android:name=".BloqueoBusquedaActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTask"
+            android:noHistory="true"
+            android:theme="@style/Theme.FiltroContenido" />
+
         <!-- VPN local que filtra el DNS (equivale a filtro.py en el PC). -->
         <service
             android:name=".vpn.DnsVpnService"
