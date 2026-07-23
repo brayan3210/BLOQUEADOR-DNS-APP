@@ -1,11 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="navy">#0B1F3A</color>
-    <color name="navy_light">#13294B</color>
-    <color name="gold">#C9A227</color>
-    <color name="text">#F2F4F8</color>
-    <color name="text_dim">#9FB0C3</color>
-    <color name="green">#36D399</color>
-    <color name="red">#F87272</color>
+    <!--
+      TEMA CLARO (day). Los mismos nombres de token existen en values-night/colors.xml
+      con los valores del modo oscuro (el diseno de referencia). Solo cambia el look:
+      la logica de la app no depende de estos colores.
+    -->
+
+    <!-- Superficies y fondo -->
+    <color name="bg">#EEF2F8</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="surface_alt">#F4F7FC</color>
+    <color name="surface_inset">#F7FAFE</color>
+    <color name="outline">#E2E8F1</color>
+    <color name="scrim">#99000000</color>
+
+    <!-- Texto -->
+    <color name="on_surface">#0E1726</color>
+    <color name="on_surface_dim">#4B5A70</color>
+    <color name="on_surface_faint">#8493A6</color>
+
+    <!-- Marca / acentos (estables entre temas) -->
+    <color name="brand_blue">#2563EB</color>
+    <color name="brand_blue_2">#4B8CFF</color>
+    <color name="gold">#E8B84B</color>
+    <color name="gold_2">#D3A032</color>
+    <color name="gold_text">#B0871E</color>
+    <color name="purple">#7C5CF6</color>
+
+    <!-- Semanticos -->
+    <color name="success">#129E6A</color>
+    <color name="danger">#E23D3D</color>
+    <color name="warn">#C77700</color>
+
+    <!-- Circulos suaves detras de iconos (fondo translucido) -->
+    <color name="soft_blue">#1A2563EB</color>
+    <color name="soft_gold">#24E8B84B</color>
+    <color name="soft_green">#1A129E6A</color>
+    <color name="soft_purple">#1F7C5CF6</color>
+    <color name="soft_red">#1AE23D3D</color>
+
+    <!-- Compatibilidad con nombres antiguos usados por otras pantallas -->
+    <color name="navy">#EEF2F8</color>
+    <color name="navy_light">#FFFFFF</color>
+    <color name="text">#0E1726</color>
+    <color name="text_dim">#4B5A70</color>
+    <color name="green">#129E6A</color>
+    <color name="red">#E23D3D</color>
     <color name="white">#FFFFFF</color>
 </resources>

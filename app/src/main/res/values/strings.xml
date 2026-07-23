@@ -64,4 +64,102 @@
 
     <string name="guard_blocked_title">Accion bloqueada</string>
     <string name="guard_blocked_msg">Para desinstalar o desactivar el filtro necesitas tu contrasena. Abre la app, pulsa \"Desactivar proteccion\" e introducela. Estas decidiendo en frio: eso es justo lo que querias.</string>
+
+    <!-- ============ Rediseno UI (solo front) ============ -->
+
+    <!-- Marca / cabecera -->
+    <string name="brand_1">Filtro</string>
+    <string name="brand_2">Contenido</string>
+    <string name="header_subtitle">Filtro de contenido DNS</string>
+
+    <!-- Navegacion inferior -->
+    <string name="nav_home">Inicio</string>
+    <string name="nav_activity">Actividad</string>
+    <string name="nav_lists">Listas</string>
+    <string name="nav_settings">Ajustes</string>
+    <string name="nav_more">Mas</string>
+
+    <!-- Estado -->
+    <string name="status_desc_on">Tu dispositivo esta protegido. El filtro bloquea contenido no deseado a nivel DNS.</string>
+    <string name="status_desc_off">Tu dispositivo no esta protegido.\nActiva la proteccion para bloquear contenido no deseado a nivel DNS.</string>
+
+    <!-- Metricas -->
+    <string name="stat_domains">Dominios bloqueados</string>
+    <string name="stat_words">Palabras bloqueadas</string>
+    <string name="stat_applied">Bloqueos aplicados</string>
+    <string name="stat_password">Contrasena</string>
+    <string name="stat_admin">Admin. dispositivo</string>
+    <string name="stat_guard">Guardian accesibilidad</string>
+    <string name="stat_search">Bloqueo busquedas</string>
+    <string name="stat_owner">Device Owner (capa 3)</string>
+
+    <string name="val_defined">Definida</string>
+    <string name="val_undefined">Sin definir</string>
+    <string name="val_active">Activo</string>
+    <string name="val_inactive">Inactivo</string>
+    <string name="val_yes">Si</string>
+    <string name="val_no">No</string>
+
+    <!-- Tarjetas de caracteristicas -->
+    <string name="feature_dns_title">Filtrado DNS</string>
+    <string name="feature_dns_desc">Bloquea destinos a nivel DNS (igual que la version de PC), sin SafeSearch ni descifrar trafico.</string>
+    <string name="feature_layers_title">Resistencia 3 capas</string>
+    <string name="feature_layers_desc">Administrador de dispositivo + Guardian de accesibilidad + (opcional) Device Owner por ADB.</string>
+    <string name="read_more">Leer mas en el README</string>
+
+    <!-- Seccion refuerzo (subtitulos) -->
+    <string name="row_password_sub">PIN o clave para desactivar el filtro</string>
+    <string name="row_admin_sub">Evita la desinstalacion facil</string>
+    <string name="row_guard_sub">Frena intentos de desactivar la app</string>
+    <string name="row_lists_sub">Descargar ~260K dominios</string>
+
+    <!-- Actividad -->
+    <string name="act_header">Actividad</string>
+    <string name="act_sub">Resumen de tu proteccion</string>
+    <string name="act_total_label">Bloqueos aplicados</string>
+    <string name="act_events">Eventos recientes</string>
+
+    <!-- Listas -->
+    <string name="lists_header">Listas de bloqueo</string>
+    <string name="lists_sub">Dominios y palabras que se filtran</string>
+    <string name="lists_sources_title">Fuentes</string>
+    <string name="lists_sources_desc">Listas comunitarias (StevenBlack, Hagezi) + catalogo propio de terminos y actrices. Las palabras anatomicas (biologia) estan exceptuadas.</string>
+    <string name="lists_updated_never">Nunca</string>
+
+    <!-- Ajustes -->
+    <string name="settings_header">Ajustes</string>
+    <string name="settings_sub">Apariencia, seguridad y permisos</string>
+    <string name="settings_appearance">Apariencia</string>
+    <string name="settings_theme">Tema oscuro</string>
+    <string name="settings_theme_sub">Cambia entre claro y oscuro</string>
+    <string name="settings_security">Seguridad y refuerzo</string>
+    <string name="settings_notifications">Notificaciones</string>
+    <string name="settings_notif_row">Permisos de notificacion</string>
+    <string name="settings_notif_sub">Abrir ajustes del sistema</string>
+    <string name="settings_about">Informacion</string>
+
+    <!-- Mas -->
+    <string name="more_header">Mas</string>
+    <string name="more_sub">Acerca de esta app</string>
+    <string name="about_title">Filtro de Contenido</string>
+    <string name="about_desc">Bloqueo de contenido para adultos a nivel de DNS. Autocontrol, no castigo. Misma logica que la version de PC.</string>
+    <string name="version">Version 1.0</string>
+    <string name="donate">Donar</string>
+    <string name="donate_sub">Apoya el desarrollo con una donacion</string>
+    <string name="github_row">Codigo en GitHub</string>
+    <string name="github_sub">github.com/brayan3210</string>
+    <string name="made_by">Brayan Cortes</string>
+    <string name="made_role">Desarrollador Full Stack</string>
+
+    <!-- Notificaciones (centro dentro de la app) -->
+    <string name="notif_center_title">Notificaciones</string>
+    <string name="notif_center_sub">Avisos sobre tu proteccion</string>
+    <string name="notif_empty">Todo en orden. No hay avisos pendientes.</string>
+
+    <!-- Descripciones de accesibilidad (contentDescription) -->
+    <string name="cd_notifications">Notificaciones</string>
+    <string name="cd_status">Estado de proteccion</string>
+    <string name="cd_menu">Menu</string>
+    <string name="cd_logo">Logo</string>
+    <string name="cd_status_shield">Escudo de estado</string>
 </resources>

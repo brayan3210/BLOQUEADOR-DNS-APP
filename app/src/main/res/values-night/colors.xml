@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      TEMA OSCURO (night) = diseno de referencia (dashboard "security console").
+      Fondo casi negro con matiz navy, tarjetas elevadas, acento azul + dorado.
+    -->
+
+    <!-- Superficies y fondo -->
+    <color name="bg">#070D17</color>
+    <color name="surface">#0F1B2E</color>
+    <color name="surface_alt">#0C1524</color>
+    <color name="surface_inset">#0E1A2C</color>
+    <color name="outline">#1D2B41</color>
+    <color name="scrim">#B3000000</color>
+
+    <!-- Texto -->
+    <color name="on_surface">#F2F5FA</color>
+    <color name="on_surface_dim">#AEB9C9</color>
+    <color name="on_surface_faint">#6C7789</color>
+
+    <!-- Marca / acentos -->
+    <color name="brand_blue">#3B8DFF</color>
+    <color name="brand_blue_2">#63A6FF</color>
+    <color name="gold">#E8B84B</color>
+    <color name="gold_2">#D3A032</color>
+    <color name="gold_text">#EDC45E</color>
+    <color name="purple">#9B7CFF</color>
+
+    <!-- Semanticos -->
+    <color name="success">#36D399</color>
+    <color name="danger">#F87272</color>
+    <color name="warn">#EDC45E</color>
+
+    <!-- Circulos suaves detras de iconos -->
+    <color name="soft_blue">#243B8DFF</color>
+    <color name="soft_gold">#2BE8B84B</color>
+    <color name="soft_green">#2436D399</color>
+    <color name="soft_purple">#2B9B7CFF</color>
+    <color name="soft_red">#24F87272</color>
+
+    <!-- Compatibilidad con nombres antiguos -->
+    <color name="navy">#070D17</color>
+    <color name="navy_light">#0F1B2E</color>
+    <color name="text">#F2F5FA</color>
+    <color name="text_dim">#AEB9C9</color>
+    <color name="green">#36D399</color>
+    <color name="red">#F87272</color>
+    <color name="white">#FFFFFF</color>
+</resources>

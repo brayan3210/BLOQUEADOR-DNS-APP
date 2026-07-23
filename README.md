@@ -17,6 +17,37 @@ sin descifrar tráfico.
 
 ---
 
+## 🎨 Interfaz (rediseño — solo front)
+
+La app estrena una interfaz tipo **dashboard** oscura (con modo claro), en línea
+con un panel de seguridad moderno. **Solo cambió la capa visual**: el filtro DNS,
+el guardián de accesibilidad, el bloqueo de búsquedas y las 3 capas de resistencia
+funcionan **exactamente igual** que antes.
+
+Novedades de UI:
+- **Navegación por 5 pestañas** (barra inferior):
+  - **Inicio** — tarjeta de estado, métricas en vivo, botón *Activar protección* y refuerzo.
+  - **Actividad** — total de *bloqueos aplicados* y lista de *eventos recientes* (estado de cada capa).
+  - **Listas** — dominios/palabras cargados, fuentes y *Actualizar listas*.
+  - **Ajustes** — apariencia (tema), seguridad (contraseña/admin/guardián) y permisos de notificación.
+  - **Más** — acerca de, donación, GitHub y marca de agua.
+- **Tarjeta de estado** con escudo (rojo = inactivo / verde = activo) y métricas en
+  vivo: dominios, palabras, bloqueos, contraseña, admin, guardián, bloqueo de
+  búsquedas y Device Owner.
+- **Tema claro/oscuro** con transición animada (por defecto oscuro). Se cambia en
+  *Ajustes → Apariencia* o en el menú **⋮** de la cabecera; se recuerda entre sesiones.
+- **Centro de notificaciones** (campana 🔔) con avisos derivados del **estado real**
+  (protección inactiva, sin contraseña, admin/guardián inactivos, bloqueos aplicados).
+  El punto azul aparece cuando hay algo que requiere tu atención.
+- **Donación** con botón **PayPal** minimalista (en *Más*).
+- **GitHub** del proyecto y **marca de agua** *"Brayan Cortés · Desarrollador Full Stack"*.
+
+> **Compatibilidad:** diseñada para **Android 14+** (probada contra API 34–36).
+> El `minSdk` se mantiene en 26 para no dejar fuera equipos más antiguos; el diseño
+> se ve idéntico en todas las versiones.
+
+---
+
 ## ¿Cómo funciona? (igual que en el PC)
 
 En el PC, `filtro.py` escucha en `127.0.0.1:53` y decide por cada consulta DNS.
@@ -202,7 +233,9 @@ salvo que el dispositivo esté **supervisado (MDM)** con Apple Configurator
 ```
 app/src/main/
 ├── java/com/brayan/filtrocontenido/
-│   ├── MainActivity.kt                 UI y flujos
+│   ├── App.kt                          Application: aplica el tema guardado (solo UI)
+│   ├── MainActivity.kt                 UI, navegación por pestañas y flujos
+│   ├── data/UiPrefs.kt                 preferencia de tema claro/oscuro (solo UI)
 │   ├── vpn/DnsVpnService.kt            VPN local que filtra el DNS (= filtro.py)
 │   ├── net/IpUdp.kt · Dns.kt           parseo/armado de paquetes IPv4/UDP y DNS
 │   ├── filter/DomainFilter.kt          lógica dominio + palabra clave (= PC)
