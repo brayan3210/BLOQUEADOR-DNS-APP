@@ -57,9 +57,14 @@ class MainActivity : AppCompatActivity() {
         private const val URL_GITHUB = "https://github.com/brayan3210"
         private const val URL_OWNER_DOC =
             "https://github.com/brayan3210/BLOQUEADOR-DNS-APP/blob/main/device-owner/INSTRUCCIONES.md"
+        private const val STATE_TAB = "state_tab"
     }
 
     private lateinit var binding: ActivityMainBinding
+
+    // Pestana visible actualmente. Se conserva al recrear la Activity (p.ej. al
+    // cambiar de tema) para no volver siempre a Inicio.
+    private var currentTab: Int = R.id.nav_inicio
 
     private val vpnPrepare =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -91,6 +96,9 @@ class MainActivity : AppCompatActivity() {
             requestNotif.launch(android.Manifest.permission.POST_NOTIFICATIONS)
         }
 
+        // Restaurar la pestana que estaba abierta antes de recrear (cambio de tema, etc.).
+        currentTab = savedInstanceState?.getInt(STATE_TAB, R.id.nav_inicio) ?: R.id.nav_inicio
+
         wireUi()
 
         if (intent?.getBooleanExtra(EXTRA_GUARD_BLOCK, false) == true) {
@@ -107,6 +115,12 @@ class MainActivity : AppCompatActivity() {
         // Si la app es Device Owner (capa 3), reaplicar el blindaje.
         try { DeviceOwnerManager.applyHardening(this) } catch (_: Exception) {}
         refresh()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        // Recordar la pestana abierta para restaurarla al recrear (cambio de tema).
+        outState.putInt(STATE_TAB, currentTab)
     }
 
     // ================================================================ UI wiring
@@ -143,8 +157,8 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNav.setOnItemSelectedListener { item ->
             showPage(item.itemId); true
         }
-        binding.bottomNav.selectedItemId = R.id.nav_inicio
-        showPage(R.id.nav_inicio)
+        binding.bottomNav.selectedItemId = currentTab
+        showPage(currentTab)
     }
 
     private fun selectPage(itemId: Int) {
@@ -152,6 +166,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showPage(itemId: Int) {
+        currentTab = itemId
         binding.pageInicio.visibility = View.GONE
         binding.pageActividad.visibility = View.GONE
         binding.pageListas.visibility = View.GONE
