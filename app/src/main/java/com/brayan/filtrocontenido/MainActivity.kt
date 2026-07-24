@@ -1,6 +1,8 @@
 package com.brayan.filtrocontenido
 
 import android.app.admin.DevicePolicyManager
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.GradientDrawable
@@ -53,6 +55,8 @@ class MainActivity : AppCompatActivity() {
         private const val URL_DONATE =
             "https://www.paypal.com/donate/?hosted_button_id=ANE8JAX7MG5FE"
         private const val URL_GITHUB = "https://github.com/brayan3210"
+        private const val URL_OWNER_DOC =
+            "https://github.com/brayan3210/BLOQUEADOR-DNS-APP/blob/main/device-owner/INSTRUCCIONES.md"
     }
 
     private lateinit var binding: ActivityMainBinding
@@ -113,12 +117,14 @@ class MainActivity : AppCompatActivity() {
         binding.btnPassword.setOnClickListener { onSetPassword() }
         binding.btnDeviceAdmin.setOnClickListener { onDeviceAdmin() }
         binding.btnAccessibility.setOnClickListener { onAccessibility() }
+        binding.btnDeviceOwner.setOnClickListener { onDeviceOwner() }
         binding.btnUpdateLists.setOnClickListener { onUpdateLists() }
         binding.btnUpdateListsFull.setOnClickListener { onUpdateLists() }
 
         binding.rowPassword2.setOnClickListener { onSetPassword() }
         binding.rowAdmin2.setOnClickListener { onDeviceAdmin() }
         binding.rowGuard2.setOnClickListener { onAccessibility() }
+        binding.rowOwner2.setOnClickListener { onDeviceOwner() }
         binding.rowNotifPerms.setOnClickListener { openNotificationSettings() }
 
         // Cabecera.
@@ -365,6 +371,39 @@ class MainActivity : AppCompatActivity() {
             contentResolver, Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES
         ) ?: return false
         return flat.contains("$packageName/")
+    }
+
+    /**
+     * Capa 3 (Device Owner). Android NO permite que una app se convierta en Device
+     * Owner por si misma: se hace una sola vez por ADB desde el PC. Por eso:
+     *  - Si YA es Device Owner -> reaplica el blindaje real (setUninstallBlocked,
+     *    DNS privado off, VPN always-on) y lo confirma.
+     *  - Si NO lo es -> muestra el comando ADB exacto, con opcion de copiarlo o
+     *    abrir la guia. (Honesto: no simula algo que el sistema no permite.)
+     */
+    private fun onDeviceOwner() {
+        if (DeviceOwnerManager.isOwner(this)) {
+            try { DeviceOwnerManager.applyHardening(this) } catch (_: Exception) {}
+            refresh()
+            AlertDialog.Builder(this)
+                .setTitle(R.string.owner_active_title)
+                .setMessage(R.string.owner_active_msg)
+                .setPositiveButton(android.R.string.ok, null)
+                .show()
+        } else {
+            val cmd = getString(R.string.owner_adb_cmd)
+            AlertDialog.Builder(this)
+                .setTitle(R.string.owner_needs_adb_title)
+                .setMessage(getString(R.string.owner_needs_adb_msg, cmd))
+                .setPositiveButton(R.string.owner_copy) { _, _ ->
+                    val cb = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                    cb.setPrimaryClip(ClipData.newPlainText("adb", cmd))
+                    toast(getString(R.string.owner_copied))
+                }
+                .setNeutralButton(R.string.owner_how) { _, _ -> openUrl(URL_OWNER_DOC) }
+                .setNegativeButton(android.R.string.cancel, null)
+                .show()
+        }
     }
 
     // ================================================================ lists

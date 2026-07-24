@@ -370,6 +370,17 @@
                         </LinearLayout>
                         <ImageView style="@style/RowChevron" android:src="@drawable/ic_chevron_right" app:tint="@color/on_surface_faint" />
                     </LinearLayout>
+
+                    <View style="@style/RowDivider" />
+
+                    <LinearLayout android:id="@+id/btnDeviceOwner" style="@style/ListRow">
+                        <ImageView style="@style/RowIcon" android:background="@drawable/circle_purple" android:src="@drawable/ic_layers" app:tint="@color/purple" android:contentDescription="@null" />
+                        <LinearLayout style="@style/RowTextWrap">
+                            <TextView style="@style/RowTitle" android:text="@string/btn_device_owner" />
+                            <TextView style="@style/RowSub" android:text="@string/row_owner_sub" />
+                        </LinearLayout>
+                        <ImageView style="@style/RowChevron" android:src="@drawable/ic_chevron_right" app:tint="@color/on_surface_faint" />
+                    </LinearLayout>
                 </LinearLayout>
 
                 <!-- Seccion: Listas -->
@@ -794,6 +805,17 @@
                         <LinearLayout style="@style/RowTextWrap">
                             <TextView style="@style/RowTitle" android:text="@string/btn_accessibility" />
                             <TextView style="@style/RowSub" android:text="@string/row_guard_sub" />
+                        </LinearLayout>
+                        <ImageView style="@style/RowChevron" android:src="@drawable/ic_chevron_right" app:tint="@color/on_surface_faint" />
+                    </LinearLayout>
+
+                    <View style="@style/RowDivider" />
+
+                    <LinearLayout android:id="@+id/rowOwner2" style="@style/ListRow">
+                        <ImageView style="@style/RowIcon" android:background="@drawable/circle_purple" android:src="@drawable/ic_layers" app:tint="@color/purple" android:contentDescription="@null" />
+                        <LinearLayout style="@style/RowTextWrap">
+                            <TextView style="@style/RowTitle" android:text="@string/btn_device_owner" />
+                            <TextView style="@style/RowSub" android:text="@string/row_owner_sub" />
                         </LinearLayout>
                         <ImageView style="@style/RowChevron" android:src="@drawable/ic_chevron_right" app:tint="@color/on_surface_faint" />
                     </LinearLayout>

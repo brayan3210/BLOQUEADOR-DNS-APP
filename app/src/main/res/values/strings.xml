@@ -113,6 +113,18 @@
     <string name="row_guard_sub">Frena intentos de desactivar la app</string>
     <string name="row_lists_sub">Descargar ~260K dominios</string>
 
+    <!-- Device Owner (capa 3) -->
+    <string name="btn_device_owner">Activar Device Owner (capa 3)</string>
+    <string name="row_owner_sub">Maxima resistencia · requiere PC (ADB)</string>
+    <string name="owner_adb_cmd">adb shell dpm set-device-owner com.brayan.filtrocontenido/.admin.FilterDeviceAdminReceiver</string>
+    <string name="owner_needs_adb_title">Device Owner (capa 3)</string>
+    <string name="owner_needs_adb_msg">Es el blindaje mas fuerte: la opcion de desinstalar ni aparece, se apaga el DNS privado y se fuerza la VPN always-on.\n\nAndroid NO permite activarlo desde la app: se hace UNA sola vez por ADB desde tu PC, con el telefono SIN cuentas anadidas y con Depuracion USB activada.\n\nComando:\n%1$s\n\nDespues, abre la app una vez para aplicar el blindaje.</string>
+    <string name="owner_copy">Copiar comando</string>
+    <string name="owner_how">Ver guia</string>
+    <string name="owner_copied">Comando copiado al portapapeles.</string>
+    <string name="owner_active_title">Device Owner activo</string>
+    <string name="owner_active_msg">La capa 3 ya esta activa. Se reaplico el blindaje: desinstalacion bloqueada, DNS privado desactivado y VPN always-on con lockdown.</string>
+
     <!-- Actividad -->
     <string name="act_header">Actividad</string>
     <string name="act_sub">Resumen de tu proteccion</string>
