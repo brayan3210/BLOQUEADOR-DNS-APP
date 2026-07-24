@@ -13,6 +13,7 @@ local.properties
 # Claves de firma (no se suben nunca)
 *.keystore
 *.jks
+keystore.properties
 
 # Los APK de compilacion se ignoran, PERO publicamos el APK final listo para instalar:
 *.apk

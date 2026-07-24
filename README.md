@@ -201,6 +201,24 @@ gradlew.bat assembleDebug
 # APK resultante: app/build/outputs/apk/debug/app-debug.apk
 ```
 
+### Firma de release (para distribuir y poder actualizar)
+El APK que se publica en **`releases/`** va firmado con una **clave de release
+propia y estable** (no la clave de depuración). Esto es lo que permite
+**actualizar** la app más adelante sin que Android rechace la nueva versión por
+"firma distinta" — algo crítico cuando el anti-desinstalación está activo.
+
+- Los secretos viven en **`keystore.properties`** y en **`release.keystore`**, ambos
+  **fuera de git** (`.gitignore`). **Guárdalos y respáldalos**: si pierdes el
+  keystore o su contraseña, **nunca** podrás publicar una actualización.
+- Compilar el APK firmado:
+  ```bash
+  gradlew.bat assembleRelease
+  # APK resultante: app/build/outputs/apk/release/app-release.apk
+  ```
+- En otra máquina sin `keystore.properties`, el build no se rompe: el release
+  sale sin firmar (hay que aportar el keystore para firmarlo).
+- Para cada versión nueva, sube `versionCode` en `app/build.gradle.kts`.
+
 ### Primer uso
 1. Abre la app → **Establecer contraseña** (o decide destruirla / dársela a alguien).
 2. **Activar protección** → acepta el permiso de VPN.
